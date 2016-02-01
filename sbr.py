@@ -3,13 +3,11 @@ from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 class SBRHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200,"OK")
-        self.send_header('content-type','text/html')
+        self.send_header('content-type','text/json')
         self.end_headers()
-        self.wfile.write("""<HTML>
-        <HEAD><TITLE></TITLE></HEAD>
-        <BODY>Hello</BODY>
-        </HTML>
-        """)
+        self.wfile.write("""{
+        "status" : "ok"
+        }""")
         pass
     def do_POST(self):
         pass
