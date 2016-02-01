@@ -15,5 +15,5 @@ class SBRHandler(BaseHTTPRequestHandler):
         pass
     def do_PUT(self):
         pass
-serv = HTTPServer(("",8080),SimpleHTTPRequestHandler)
+serv = HTTPServer(("",8080),SBRHandler)
 serv.serve_forever()
