@@ -4,6 +4,7 @@ import json
 class SBRHandler(BaseHTTPRequestHandler):
     def __init__(self):
         self.data = {}
+        pass
         
     def do_GET(self):
         self.send_response(200,"OK")
