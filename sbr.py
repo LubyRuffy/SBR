@@ -2,6 +2,9 @@ from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import json
 
 class SBRHandler(BaseHTTPRequestHandler):
+    def __init__(self):
+        self.data = {}
+        
     def do_GET(self):
         self.send_response(200,"OK")
         self.send_header('content-type','text/json')
