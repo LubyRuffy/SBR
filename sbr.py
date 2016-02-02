@@ -41,6 +41,10 @@ class SBRHandler(BaseHTTPRequestHandler, object):
         pass
     def do_PUT(self):
         pass
-    
-serv = HTTPServer(("",8080),SBRHandler)
-serv.serve_forever()
+
+try:    
+    serv = HTTPServer(("",8080),SBRHandler)
+    serv.serve_forever()
+except KeyboardInterrupt:
+    pass
+
