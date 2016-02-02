@@ -33,10 +33,8 @@ class SBRHandler(BaseHTTPRequestHandler):
         pass
 
 try:
-    
     serv = HTTPServer(("",8080),SBRHandler)
     serv.serve_forever()
-    
 except KeyboardInterrupt:
     pass
 
