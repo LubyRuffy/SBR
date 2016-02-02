@@ -36,7 +36,11 @@ class MotorMgr(Resource):
         return Response(json.dumps(motors[motor]),mimetype='text/json')
 
 class LEDMgr(Resource):
-    def put(self, state):
+    def get(self, state):
+        if state == 'on':
+            GPIO.output(11,True)
+        else:
+            GPIO.output(11,False)    
         
 class GyroMgr(Resource):
     def get(self):
