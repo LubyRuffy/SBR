@@ -9,6 +9,7 @@ class MotorIf(object):
         self['revPin'] = revPin
         
     def set_speed(self, speed):
+        self['speed'] = speed
         pass
 
     def set_direction(self, dir):
@@ -18,7 +19,8 @@ class MotorIf(object):
         else if dir == 'BACKWARD':
             GPIO.output(self['revPin'],GPIO.HIGH)
             GPIO.output(self['fwdPin'],GPIO.LOW)
-            
+        
+        self.set_speed(self['speed'])
 
 class SBRHandler(BaseHTTPRequestHandler, object):
     def setup(self):
