@@ -2,9 +2,9 @@ from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import json
 
 class SBRHandler(BaseHTTPRequestHandler):
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         self.data = {}
-        pass
+        super(ChildClass, self).__init__(*args, **kwargs)
         
     def do_GET(self):
         self.send_response(200,"OK")
