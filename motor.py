@@ -29,6 +29,7 @@ class MotorIf(object):
                 print 'Starting motors'
             else:
                 self.pwm.ChangeDutyCycle(speed)
+                print 'Changing speed'
 
     def set_direction(self, dir):
         if dir == 'FORWARD':
