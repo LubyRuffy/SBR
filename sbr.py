@@ -38,4 +38,5 @@ try:
 except KeyboardInterrupt:
     pass
 
+print 'cleaning up'
 GPIO.cleanup()
