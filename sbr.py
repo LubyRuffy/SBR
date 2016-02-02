@@ -11,6 +11,7 @@ mL.set_direction('FORWARD')
 mR.set_direction('FORWARD')
 mR.set_speed(50)
 mL.set_speed(50)
+acc = A(0x68)
 
 class SBRHandler(BaseHTTPRequestHandler, object):
 
