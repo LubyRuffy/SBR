@@ -28,7 +28,7 @@ class MotorMgr(Resource):
         return json.dumps(motors)
 
     def put(self, motor, speed):
-        motors[motor] = speed
+        motors[motor]['speed'] = speed
         return json.dumps(motors)
 
 api.add_resource(MotorMgr, '/<string:motor>/<int:speed>')
