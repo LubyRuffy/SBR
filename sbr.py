@@ -7,15 +7,18 @@ class MotorMgr(object):
         self = {}
         self['fwdPin'] = fwdPin
         self['revPin'] = revPin
-        self['speed'] = speed
-    
+        
     def set_speed(self, speed):
-        self['speed'] = speed
-
+        self.set_rspeed(speed)
+        self.set_lspeed(speed)
+        pass
+    
     def set_rspeed(self,speed):
+        self['rspeed'] = speed
         pass
     
     def set_lspeed(self,speed):
+        self['lspeed'] = speed
         pass
     
 class SBRHandler(BaseHTTPRequestHandler, object):
