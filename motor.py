@@ -12,7 +12,7 @@ class MotorIf(object):
         self.pwmPin = pwmPin
         self.running = False
         self.pwm = GPIO.PWM(pwmPin,100)
-        print 'Created MotorIf '
+        print 'Created MotorIf ', name
         super(MotorIf,self).__init__()
         
     def set_speed(self, speed):
@@ -22,15 +22,15 @@ class MotorIf(object):
             GPIO.output(self.fwdPin,GPIO.LOW)
             self.pwm.stop()
             self.running = False
-            print 'Stopping motors'
+            print 'Stopping motor ',self.name
         else :
             if not self.running:
                 self.pwm.start(speed)
                 self.running = True
-                print 'Starting motors'
+                print 'Starting motor ',self.name
             else:
                 self.pwm.ChangeDutyCycle(speed)
-                print 'Changing speed'
+                print 'Changing speed of motor ',self.name
 
     def set_direction(self, dir):
         if dir == 'FORWARD':
@@ -39,7 +39,7 @@ class MotorIf(object):
         elif dir == 'BACKWARD':
             GPIO.output(self.revPin,GPIO.HIGH)
             GPIO.output(self.fwdPin,GPIO.LOW)
-        
+        print 'Change direction of motor ',self.name, ' dir: ',dir
     def stop(self):
         self.set_speed(0)
 
