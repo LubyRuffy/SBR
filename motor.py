@@ -26,6 +26,7 @@ class MotorIf(object):
             if not self.running:
                 self.pwm.start(speed)
                 self.running = True
+                print 'Starting motors'
             else:
                 self.pwm.ChangeDutyCycle(speed)
 
