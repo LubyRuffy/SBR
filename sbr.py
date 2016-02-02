@@ -2,6 +2,8 @@ from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import json
 import RPi.GPIO as GPIO
 
+from motor import MotorIf as Motor
+
 class MotorIf(object):
 
     def __init__(self, fwdPin, revPin, pwmPin):
