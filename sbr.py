@@ -8,6 +8,9 @@ class MotorIf(object):
         self['fwdPin'] = fwdPin
         self['revPin'] = revPin
         self['pwmPin'] = pwmPin
+        GPIO.setup(fwdPin,GPIO.OUT)
+        GPIO.setup(revPin,GPIO.OUT)
+        GPIO.setup(pwmPin,GPIO.OUT)
         self['pwm'] = GPIO.PWM(pwmPin,100)
         self['running'] = False
         
