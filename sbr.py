@@ -33,8 +33,6 @@ class MotorIf(object):
             GPIO.output(self['revPin'],GPIO.HIGH)
             GPIO.output(self['fwdPin'],GPIO.LOW)
         
-        self.set_speed(self['speed'])
-        
     def stop(self):
         self.set_speed(0)
 
@@ -42,7 +40,7 @@ class SBRHandler(BaseHTTPRequestHandler, object):
     def setup(self):
         GPIO.setmode(GPIO.BOARD)
         self['mL'] = MotorIf(33,35,37)
-        self['mR'] = MotorIf(
+        self['mR'] = MotorIf(36,38,40)
         
     def __init__(self, *args, **kwargs):
         self.data = { 'status': 'ok' }
