@@ -38,5 +38,6 @@ try:
     serv.serve_forever()
     
 except KeyboardInterrupt:
-    GPIO.cleanup()
     pass
+
+GPIO.cleanup()
