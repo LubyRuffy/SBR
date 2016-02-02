@@ -27,9 +27,10 @@ class MotorMgr(Resource):
         return Response(json.dumps(motors[motor]),mimetype='text/json')
 
     def put(self, motor):
-        speed = request.form['speed']
+        
         dir = request.form['dir']
-        if speed:
+        if 'speed' in request.form.keys():
+            speed = request.form['speed']    
             motors[motor]['speed'] = int(speed)
         if dir:
             motors[motor]['dir'] = dir
