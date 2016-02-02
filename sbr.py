@@ -29,7 +29,7 @@ class MotorIf(object):
         if dir == 'FORWARD':
             GPIO.output(self['revPin'],GPIO.LOW)
             GPIO.output(self['fwdPin'],GPIO.HIGH)
-        else if dir == 'BACKWARD':
+        elif dir == 'BACKWARD':
             GPIO.output(self['revPin'],GPIO.HIGH)
             GPIO.output(self['fwdPin'],GPIO.LOW)
         
