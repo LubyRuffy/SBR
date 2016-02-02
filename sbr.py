@@ -22,6 +22,7 @@ class MotorIf(object):
         
     def set_speed(self, speed):
         self['speed'] = speed
+        self['running'] = False
         if speed == 0:
             GPIO.output(self['revPin'],GPIO.LOW)
             GPIO.output(self['fwdPin'],GPIO.LOW)
