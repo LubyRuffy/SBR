@@ -15,6 +15,13 @@ class MotorIf(object):
         if speed == 0:
             GPIO.output(self['revPin'],GPIO.LOW)
             GPIO.output(self['fwdPin'],GPIO.LOW)
+            self['pwm'].stop()
+        else :
+            if self['pwm'] :
+                self['pwm'] =  GPIO.PWM(pwmPin,speed)
+            else:
+                self['pwm'].ChangeFrequency(speed)
+                        
         
 
     def set_direction(self, dir):
