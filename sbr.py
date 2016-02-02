@@ -24,7 +24,7 @@ class MotorIf(object):
         super(MotorIf,self).__init__()
         
     def set_speed(self, speed):
-        self['speed'] = speed
+        self.speed = speed
         if speed == 0:
             GPIO.output(self['revPin'],GPIO.LOW)
             GPIO.output(self['fwdPin'],GPIO.LOW)
