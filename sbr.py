@@ -3,7 +3,7 @@ import json
 import RPi.GPIO as GPIO
 
 class MotorIf(object):
-    def __init__(fwdPin, revPin, pwmPin, speed):
+    def __init__(fwdPin, revPin, pwmPin):
         self = {}
         self['fwdPin'] = fwdPin
         self['revPin'] = revPin
@@ -24,8 +24,6 @@ class MotorIf(object):
                 self['running'] = True
             else:
                 self['pwm'].ChangeDutyCycle(speed)
-                        
-        
 
     def set_direction(self, dir):
         if dir == 'FORWARD':
