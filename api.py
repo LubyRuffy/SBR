@@ -41,6 +41,8 @@ class LEDMgr(Resource):
             GPIO.output(11,True)
         else:
             GPIO.output(11,False)    
+        return Response(json.dumps({"status": "ok"}),mimetype='text/json')
+        
         
 class GyroMgr(Resource):
     def get(self):
@@ -52,6 +54,7 @@ if __name__ == '__main__':
         api = Api(app)
         api.add_resource(MotorMgr, '/motor/<string:motor>')
         api.add_resource(GyroMgr, '/gyro')
+        api.add_resource(LEDMgr, '/led/<string:state>')
         app.run(host='0.0.0.0', debug=True)
     except KeyboardInterrupt:
         pass
