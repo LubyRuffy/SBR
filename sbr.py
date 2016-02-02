@@ -46,7 +46,6 @@ class SBRHandler(BaseHTTPRequestHandler, object):
         self.data = { 'status': 'ok' }
         super(SBRHandler, self).__init__(*args,**kwargs)
 
-
     def do_GET(self):
         self.send_response(200,"OK")
         self.send_header('content-type','text/json')
