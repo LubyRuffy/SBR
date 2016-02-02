@@ -25,6 +25,7 @@ class MotorIf(object):
             self.running = False
             print 'Stopping motor ',self.name
         else :
+            GPIO.output(self.revPin,GPIO.HIGH)
             if not self.running:
                 self.pwm.start(speed)
                 self.running = True
