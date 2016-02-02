@@ -7,6 +7,10 @@ from motor import MotorIf as Motor
 GPIO.setmode(GPIO.BOARD)
 mL = Motor(33,35,37)
 mR = Motor(36,38,40)
+mL.set_direction('FORWARD')
+mR.set_direction('FORWARD')
+mR.set_speed(50)
+mL.set_speed(50)
 
 class SBRHandler(BaseHTTPRequestHandler):
     def setup(self):
