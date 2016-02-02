@@ -9,6 +9,7 @@ class MotorIf(object):
         self['revPin'] = revPin
         self['pwmPin'] = pwmPin
         self['pwm'] = GPIO.PWM(pwmPin,100)
+        self['pwm'].ChangeDutyCycle(0)
         
     def set_speed(self, speed):
         self['speed'] = speed
