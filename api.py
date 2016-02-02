@@ -10,8 +10,8 @@ from accelerometer import Accelerometer as A
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11,GPIO.OUT)
 
-mL = Motor(33,35,37)
-mR = Motor(36,38,40)
+mL = Motor('Left', 33,35,37)
+mR = Motor('Right', 36,38,40)
 mL.set_direction('FORWARD')
 mR.set_direction('FORWARD')
 mR.set_speed(50)
