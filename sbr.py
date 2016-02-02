@@ -24,6 +24,7 @@ class MotorIf(object):
         self['running'] = False
         self['pwm'] = GPIO.PWM(pwmPin,100)
         print 'Created MotorIf ', self['pwm']
+        super(MotorIf,self).__init__()
         
     def set_speed(self, speed):
         self['speed'] = speed
