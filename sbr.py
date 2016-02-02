@@ -6,12 +6,12 @@ from motor import MotorIf as Motor
 class SBRHandler(BaseHTTPRequestHandler):
     def setup(self):
         GPIO.setmode(GPIO.BOARD)
-        self.mL = MotorIf(33,35,37)
-        self.mR = MotorIf(36,38,40)
-        self.mR.set_speed(50)
-        self.mL.set_speed(50)
+        self.mL = Motor(33,35,37)
+        self.mR = Motor(36,38,40)
         self.mL.set_direction('FORWARD')
         self.mR.set_direction('FORWARD')
+        self.mR.set_speed(50)
+        self.mL.set_speed(50)
 
     def __init__(self, *args, **kwargs):
         self.data = { 'status': 'ok' }
