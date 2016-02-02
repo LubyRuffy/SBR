@@ -17,7 +17,7 @@ class MotorIf(object):
             GPIO.output(self['fwdPin'],GPIO.LOW)
             self['pwm'].stop()
         else :
-            if self['pwm'] :
+            if self['pwm'] is not Null :
                 self['pwm'] =  GPIO.PWM(pwmPin,100)
             else:
                 self['pwm'].ChangeDutyCycle(speed)
