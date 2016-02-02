@@ -61,7 +61,7 @@ class SBRHandler(BaseHTTPRequestHandler):
         self.send_header('content-type','text/json')
         self.end_headers()
         self.wfile.write(json.dumps(self.data))
-        print json.dumps(self.data)
+        print json.dumps(self.data) 
         pass
     
     def do_POST(self):
