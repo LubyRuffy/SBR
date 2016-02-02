@@ -1,7 +1,11 @@
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import json
+import RPi.GPIO as GPIO
 
 class SBRHandler(BaseHTTPRequestHandler, object):
+    def setup(self):
+        GPIO.setmode(GPIO.BOARD)
+        
     def __init__(self, *args, **kwargs):
         self.data = { 'status': 'ok' }
         super(SBRHandler, self).__init__(*args,**kwargs)
@@ -17,5 +21,6 @@ class SBRHandler(BaseHTTPRequestHandler, object):
         pass
     def do_PUT(self):
         pass
+    
 serv = HTTPServer(("",8080),SBRHandler)
 serv.serve_forever()
