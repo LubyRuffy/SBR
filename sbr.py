@@ -41,9 +41,12 @@ class MotorIf(object):
 class SBRHandler(BaseHTTPRequestHandler, object):
     def setup(self):
         GPIO.setmode(GPIO.BOARD)
+        self['mL'] = MotorIf(33,35,37)
+        self['mR'] = MotorIf(
         
     def __init__(self, *args, **kwargs):
         self.data = { 'status': 'ok' }
+        self.setup()
         super(SBRHandler, self).__init__(*args,**kwargs)
 
     def do_GET(self):
