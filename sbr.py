@@ -25,6 +25,8 @@ class SBRHandler(BaseHTTPRequestHandler, object):
             self.end_headers()
             self.wfile.write(json.dumps(self.data))
             print json.dumps(self.data) 
+        else if self.path = '/favicon.ico'
+            self.send_response(404,"Not Found")
             
         pass
     
