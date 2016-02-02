@@ -2,6 +2,7 @@ from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import json
 import RPi.GPIO as GPIO
 from motor import MotorIf as Motor
+from accelerometer import Accelerometer as A
 
 # initial configuration
 GPIO.setmode(GPIO.BOARD)
