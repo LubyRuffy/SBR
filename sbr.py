@@ -16,7 +16,6 @@ class SBRHandler(BaseHTTPRequestHandler):
 
     def __init__(self, *args, **kwargs):
         self.data = { 'status': 'ok' }
-        self.setup()
         super(SBRHandler, self).__init__(*args,**kwargs)
 
     def do_GET(self):
