@@ -40,11 +40,11 @@ class MotorIf(object):
 
     def set_direction(self, dir):
         if dir == 'FORWARD':
-            GPIO.output(self['revPin'],GPIO.LOW)
-            GPIO.output(self['fwdPin'],GPIO.HIGH)
+            GPIO.output(self.revPin,GPIO.LOW)
+            GPIO.output(self.fwdPin,GPIO.HIGH)
         elif dir == 'BACKWARD':
-            GPIO.output(self['revPin'],GPIO.HIGH)
-            GPIO.output(self['fwdPin'],GPIO.LOW)
+            GPIO.output(self.revPin,GPIO.HIGH)
+            GPIO.output(self.fwdPin,GPIO.LOW)
         
     def stop(self):
         self.set_speed(0)
