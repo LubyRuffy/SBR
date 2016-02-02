@@ -12,7 +12,7 @@ mR.set_direction('FORWARD')
 mR.set_speed(50)
 mL.set_speed(50)
 
-class SBRHandler(BaseHTTPRequestHandler):
+class SBRHandler(BaseHTTPRequestHandler, object):
 
     def __init__(self, *args, **kwargs):
         self.data = { 'status': 'ok' }
