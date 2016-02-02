@@ -23,6 +23,7 @@ class MotorIf(object):
         GPIO.setup(revPin,GPIO.OUT)
         GPIO.setup(pwmPin,GPIO.OUT)
         self['pwm'] = GPIO.PWM(pwmPin,100)
+        print 'Created MotorIf',
         
     def set_speed(self, speed):
         self['speed'] = speed
