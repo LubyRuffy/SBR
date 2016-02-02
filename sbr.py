@@ -25,18 +25,18 @@ class MotorIf(object):
         self.pwm = GPIO.PWM(pwmPin,100)
         
     def set_speed(self, speed):
-        self['speed'] = speed
+        self.speed = speed
         if speed == 0:
             GPIO.output(self['revPin'],GPIO.LOW)
             GPIO.output(self['fwdPin'],GPIO.LOW)
-            self['pwm'].stop()
-            self['running'] = False
+            self.pwm.stop()
+            self.running = False
         else :
-            if not self['running']:
-                self['pwm'].start(speed)
-                self['running'] = True
+            if not self.running:
+                self.pwm.start(speed)
+                self.running = True
             else:
-                self['pwm'].ChangeDutyCycle(speed)
+                self.pwm.ChangeDutyCycle(speed)
 
     def set_direction(self, dir):
         if dir == 'FORWARD':
