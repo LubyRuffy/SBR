@@ -13,19 +13,11 @@ mR.set_speed(50)
 mL.set_speed(50)
 
 class SBRHandler(BaseHTTPRequestHandler):
-    def setup(self):
-        
-        self.mL = Motor(33,35,37)
-        self.mR = Motor(36,38,40)
-        self.mL.set_direction('FORWARD')
-        self.mR.set_direction('FORWARD')
-        self.mR.set_speed(50)
-        self.mL.set_speed(50)
 
     def __init__(self, *args, **kwargs):
         self.data = { 'status': 'ok' }
         self.setup()
-        #super(SBRHandler, self).__init__(*args,**kwargs)
+        super(SBRHandler, self).__init__(*args,**kwargs)
 
     def do_GET(self):
         self.send_response(200,"OK")
