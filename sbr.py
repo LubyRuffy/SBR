@@ -27,7 +27,6 @@ class SBRHandler(BaseHTTPRequestHandler, object):
             print json.dumps(self.data) 
         else if self.path = '/favicon.ico'
             self.send_response(404,"Not Found")
-            
         pass
     
     def do_POST(self):
