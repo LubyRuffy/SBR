@@ -33,5 +33,9 @@ class MotorMgr(Resource):
 api.add_resource(MotorMgr, '/<string:motor>/<int:speed>')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    try:
+        app.run(debug=True)
+    except KeyboardInterrupt:
+        pass
+    GPIO.cleanup()
 
