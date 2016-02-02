@@ -24,6 +24,9 @@ class MotorIf(object):
             GPIO.output(self['fwdPin'],GPIO.LOW)
         
         self.set_speed(self['speed'])
+        
+    def stop(self):
+        self.set_speed(0)
 
 class SBRHandler(BaseHTTPRequestHandler, object):
     def setup(self):
