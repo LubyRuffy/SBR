@@ -35,7 +35,7 @@ class MotorMgr(Resource):
 
 class GyroMgr(Resource):
     def get(self):
-        
+        pass        
 
 if __name__ == '__main__':
     try:
