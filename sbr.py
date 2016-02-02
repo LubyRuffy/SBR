@@ -9,18 +9,16 @@ class MotorIf(object):
         self['revPin'] = revPin
         self['pwmPin'] = pwmPin
         self['pwm'] = GPIO.PWM(pwmPin,100)
-        self['pwm'].ChangeDutyCycle(0)
+        self['pwm'].stop(0)
         
     def set_speed(self, speed):
         self['speed'] = speed
         if speed == 0:
+            
             GPIO.output(self['revPin'],GPIO.LOW)
             GPIO.output(self['fwdPin'],GPIO.LOW)
             self['pwm'].stop()
         else :
-            if self['pwm'] is Null :
-                self['pwm'] =  GPIO.PWM(pwmPin,100)
-            
             self['pwm'].ChangeDutyCycle(speed)
                         
         
