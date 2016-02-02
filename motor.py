@@ -2,10 +2,11 @@ import RPi.GPIO as GPIO
 
 class MotorIf(object):
 
-    def __init__(self, fwdPin, revPin, pwmPin):
+    def __init__(self, name, fwdPin, revPin, pwmPin):
         GPIO.setup(fwdPin,GPIO.OUT)
         GPIO.setup(revPin,GPIO.OUT)
         GPIO.setup(pwmPin,GPIO.OUT)
+        self.name = name
         self.fwdPin = fwdPin
         self.revPin = revPin
         self.pwmPin = pwmPin
