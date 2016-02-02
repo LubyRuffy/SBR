@@ -3,7 +3,7 @@ import json
 
 class SBRHandler(BaseHTTPRequestHandler, object):
     def __init__(self, *args, **kwargs):
-        self.data = {}
+        self.data = { 'status': 'ok' }
         super(SBRHandler, self).__init__(*args,**kwargs)
         
     def do_GET(self):
