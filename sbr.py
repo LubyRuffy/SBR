@@ -54,5 +54,6 @@ try:
     serv = HTTPServer(("",8080),SBRHandler)
     serv.serve_forever()
 except KeyboardInterrupt:
+    GPIO.cleanup()
     pass
 
