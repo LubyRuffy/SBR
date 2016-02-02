@@ -3,9 +3,13 @@ import json
 import RPi.GPIO as GPIO
 from motor import MotorIf as Motor
 
+# initial configuration
+GPIO.setmode(GPIO.BOARD)
+mL = Motor(33,35,37)
+
 class SBRHandler(BaseHTTPRequestHandler):
     def setup(self):
-        GPIO.setmode(GPIO.BOARD)
+        
         self.mL = Motor(33,35,37)
         self.mR = Motor(36,38,40)
         self.mL.set_direction('FORWARD')
