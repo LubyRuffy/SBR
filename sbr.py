@@ -20,6 +20,7 @@ class MotorIf(object):
         else :
             if not self['running']:
                 self['pwm'].start(speed)
+                self['running'] = True
             else:
                 self['pwm'].ChangeDutyCycle(speed)
                         
