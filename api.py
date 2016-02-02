@@ -1,9 +1,6 @@
 from flask import Flask, request
 from flask_restful import Resource, Api
 
-app = Flask(__name__)
-api = Api(app)
-
 import json
 import RPi.GPIO as GPIO
 from motor import MotorIf as Motor
@@ -24,18 +21,29 @@ motors = {'L': {'speed': 0 , 'dir': 'FORWARD' },
 
 
 class MotorMgr(Resource):
-    def get(self, motor, speed):
+    def get(self, motor):
         return json.dumps(motors)
 
-    def put(self, motor, speed):
-        motors[motor]['speed'] = speed
+    def put(self, motor):
+        speed = request.form['speed']
+        dir = request.form['dir']
+        if speed:
+            motors[motor]['speed'] = speed
+        if dir:
+            motors[motor]['dir'] = dir
         return json.dumps(motors)
 
-api.add_resource(MotorMgr, '/speed/<string:motor>/<int:speed>')
+class GyroMgr(Resource):
+    def get(self):
+        
 
 if __name__ == '__main__':
     try:
-        app.run(debug=True)
+        app = Flask(__name__)
+        api = Api(app)
+        api.add_resource(MotorMgr, '/motor/<string:motor>')
+        api.add_resource(GyroMgr, '/gyro')
+        app.run(host='0.0.0.0', debug=True)
     except KeyboardInterrupt:
         pass
     GPIO.cleanup()
