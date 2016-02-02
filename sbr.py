@@ -8,7 +8,7 @@ class MotorIf(object):
         if hasattr(self,key):
             return getattr(self, key)
         else:
-            return NULL
+            return nil
     
     def __setitem__(self, key, value):
         setattr(self, key, value)
