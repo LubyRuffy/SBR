@@ -7,7 +7,7 @@ class MotorIf(object):
     def __getitem__(self, key):
         if hasattr(self,key):
             return getattr(self, key)
-        else
+        else:
             return Null
     
     def __setitem__(self, key, value):
