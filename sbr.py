@@ -3,7 +3,6 @@ import json
 
 class SBRHandler(BaseHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
-        self.data = {}
         super(SBRHandler, self).__init__(*args, **kwargs)
         
     def do_GET(self):
