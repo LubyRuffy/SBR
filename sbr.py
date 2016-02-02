@@ -48,7 +48,7 @@ class MotorIf(object):
     def stop(self):
         self.set_speed(0)
 
-class SBRHandler(BaseHTTPRequestHandler, object):
+class SBRHandler(BaseHTTPRequestHandler):
     def setup(self):
         GPIO.setmode(GPIO.BOARD)
         self.mL = MotorIf(33,35,37)
