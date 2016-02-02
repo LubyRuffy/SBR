@@ -1,9 +1,10 @@
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import json
 
-class SBRHandler(BaseHTTPRequestHandler):
+class SBRHandler(BaseHTTPRequestHandler, object):
     def __init__(self, *args, **kwargs):
-        super(SBRHandler, BaseHTTPRequestHandler(*args,**kwargs)).__init__(*args,**kwargs)
+        
+        super(SBRHandler, self).__init__(*args,**kwargs)
         self.data = {}
         
     def do_GET(self):
