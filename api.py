@@ -58,6 +58,7 @@ if __name__ == '__main__':
         api.add_resource(LEDMgr, '/led/<string:state>')
         
         app.run(host='0.0.0.0', debug=True)
+        GPIO.cleanup()
     except KeyboardInterrupt:
         pass
     GPIO.cleanup()
