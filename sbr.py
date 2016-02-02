@@ -3,7 +3,7 @@ import json
 import RPi.GPIO as GPIO
 
 class MotorIf(object):
-    def __init__(fwdPin, revPin, pwmPin):
+    def __init__(self, fwdPin, revPin, pwmPin):
         self = {}
         self['fwdPin'] = fwdPin
         self['revPin'] = revPin
