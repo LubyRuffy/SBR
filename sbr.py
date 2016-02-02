@@ -19,13 +19,13 @@ class SBRHandler(BaseHTTPRequestHandler, object):
         super(SBRHandler, self).__init__(*args,**kwargs)
 
     def do_GET(self):
-        if self.path = '/' :
+        if self.path == '/' :
             self.send_response(200,"OK")
             self.send_header('content-type','text/json')
             self.end_headers()
             self.wfile.write(json.dumps(self.data))
             print json.dumps(self.data) 
-        elif self.path = '/favicon.ico'
+        elif self.path == '/favicon.ico'
             self.send_response(404,"Not Found")
         pass
     
