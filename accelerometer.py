@@ -6,7 +6,6 @@ import math
 class Accelerometer(object):
 	
 	def __init__(self,i2caddr=0x68):
-        # Power management registers
         self.power_mgmt_1 = 0x6b
         self.power_mgmt_2 = 0x6c
         self.bus = smbus.SMBus(1) # or bus = smbus.SMBus(1) for Revision 2 boards
