@@ -2,25 +2,22 @@ from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import json
 import RPi.GPIO as GPIO
 
-class MotorMgr(object):
+class MotorIf(object):
     def __init__(fwdPin,revPin,speed):
         self = {}
         self['fwdPin'] = fwdPin
         self['revPin'] = revPin
         
     def set_speed(self, speed):
-        self.set_rspeed(speed)
-        self.set_lspeed(speed)
         pass
-    
-    def set_rspeed(self,speed):
-        self['rspeed'] = speed
-        pass
-    
-    def set_lspeed(self,speed):
-        self['lspeed'] = speed
-        pass
-    
+
+    def set_direction(self, dir):
+        if dir == 'FORWARD':
+            GPIO.output(self['revPin'],GPIO.LOW)
+            GPIO.output(self['fwdPin'],GPIO.HIGH)
+        else if 
+            
+
 class SBRHandler(BaseHTTPRequestHandler, object):
     def setup(self):
         GPIO.setmode(GPIO.BOARD)
