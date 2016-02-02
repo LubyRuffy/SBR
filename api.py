@@ -22,7 +22,7 @@ motors = {'L': {'speed': 0 , 'dir': 'FORWARD' },
 
 class MotorMgr(Resource):
     def get(self, motor):
-        return json.dumps(motors[motor])
+        return Response(json.dumps(motors[motor]),mimetype='text/json')
 
     def put(self, motor):
         speed = request.form['speed']
