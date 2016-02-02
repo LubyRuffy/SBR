@@ -18,8 +18,8 @@ class MotorIf(object):
     def set_speed(self, speed):
         self.speed = speed
         if speed == 0:
-            GPIO.output(self.revPin,False)
-            GPIO.output(self.fwdPin,False)
+            GPIO.output(self.revPin,True)
+            GPIO.output(self.fwdPin,True)
             self.pwm.stop()
             self.running = False
             print 'Stopping motor ',self.name
