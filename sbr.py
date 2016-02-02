@@ -8,6 +8,7 @@ class MotorIf(object):
         self['fwdPin'] = fwdPin
         self['revPin'] = revPin
         self['pwmPin'] = pwmPin
+        self['pwm'] = GPIO.PWM(pwmPin,0)
         
     def set_speed(self, speed):
         self['speed'] = speed
@@ -50,9 +51,11 @@ class SBRHandler(BaseHTTPRequestHandler, object):
     def do_PUT(self):
         pass
 
-try:    
+try:
+    
     serv = HTTPServer(("",8080),SBRHandler)
     serv.serve_forever()
+    
 except KeyboardInterrupt:
     GPIO.cleanup()
     pass
