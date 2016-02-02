@@ -4,7 +4,7 @@ import json
 class SBRHandler(BaseHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         self.data = {}
-        super(SBRHandler, self.__class__).__init__(*args, **kwargs)
+        super(SBRHandler.__class__, self).__init__(*args, **kwargs)
         
     def do_GET(self):
         self.send_response(200,"OK")
