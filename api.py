@@ -19,7 +19,8 @@ mR.set_speed(50)
 mL.set_speed(50)
 acc = A(0x68)
 
-motors = {'L': 0, 'R': 0}
+motors = {'L': {'speed': 0 , 'dir': 'FORWARD' },
+          'R': {'speed': 0 , 'dir': 'FORWARD' } }
 gyroState = {}
 
 class MotorMgr(Resource):
