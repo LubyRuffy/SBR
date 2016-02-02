@@ -11,7 +11,7 @@ class MotorIf(object):
             return None
     
     def __setitem__(self, key, value):
-        setattr(self, key, value)
+        object.__setattr__(self, attr, value)
     
     def __init__(self, fwdPin, revPin, pwmPin):
         self = {}
@@ -23,7 +23,7 @@ class MotorIf(object):
         GPIO.setup(revPin,GPIO.OUT)
         GPIO.setup(pwmPin,GPIO.OUT)
         self['pwm'] = GPIO.PWM(pwmPin,100)
-        print 'Created MotorIf',
+        print 'Created MotorIf'
         
     def set_speed(self, speed):
         self['speed'] = speed
