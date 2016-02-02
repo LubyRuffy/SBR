@@ -15,14 +15,14 @@ class MotorIf(object):
     
     def __init__(self, fwdPin, revPin, pwmPin):
         self = {}
-        self['fwdPin'] = fwdPin
-        self['revPin'] = revPin
-        self['pwmPin'] = pwmPin
-        self['running'] = False
+        self.fwdPin = fwdPin
+        self.revPin = revPin
+        self.pwmPin = pwmPin
+        self.running = False
         GPIO.setup(fwdPin,GPIO.OUT)
         GPIO.setup(revPin,GPIO.OUT)
         GPIO.setup(pwmPin,GPIO.OUT)
-        self['pwm'] = GPIO.PWM(pwmPin,100)
+        self.pwm = GPIO.PWM(pwmPin,100)
         
     def set_speed(self, speed):
         self['speed'] = speed
