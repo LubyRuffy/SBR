@@ -40,6 +40,7 @@ class MotorIf(object):
             GPIO.output(self.revPin,GPIO.HIGH)
             GPIO.output(self.fwdPin,GPIO.LOW)
         print 'Change direction of motor ',self.name, ' dir: ',dir
+        
     def stop(self):
         self.set_speed(0)
 
