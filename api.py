@@ -30,7 +30,7 @@ class MotorMgr(Resource):
         speed = request.form['speed']
         dir = request.form['dir']
         if speed:
-            motors[motor]['speed'] = speed
+            motors[motor]['speed'] = int(speed)
         if dir:
             motors[motor]['dir'] = dir
         return Response(json.dumps(motors[motor]),mimetype='text/json')
