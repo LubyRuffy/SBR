@@ -48,6 +48,12 @@ class SBRHandler(BaseHTTPRequestHandler, object):
         self['mL'].set_speed(50)
         self['mL'].set_direction('FORWARD')
         self['mR'].set_direction('FORWARD')
+
+    def __getitem__(self, key):
+        return getattr(self, key)
+    
+    def __setitem__(self, key, value):
+        setattr(self, k, v)
         
     def __init__(self, *args, **kwargs):
         self.data = { 'status': 'ok' }
