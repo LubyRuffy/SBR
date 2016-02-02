@@ -31,7 +31,7 @@ class MotorMgr(Resource):
         motors[motor]['speed'] = speed
         return json.dumps(motors)
 
-api.add_resource(MotorMgr, '/<string:motor>/speed/<int:speed>')
+api.add_resource(MotorMgr, '/speed/<string:motor>/<int:speed>')
 
 if __name__ == '__main__':
     try:
