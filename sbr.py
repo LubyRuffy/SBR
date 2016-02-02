@@ -64,7 +64,7 @@ class SBRHandler(BaseHTTPRequestHandler, object):
         return getattr(self, key)
     
     def __setitem__(self, key, value):
-        setattr(self, key, value)
+        object.__setattr__(self, key, value)
         
     def __init__(self, *args, **kwargs):
         self.data = { 'status': 'ok' }
