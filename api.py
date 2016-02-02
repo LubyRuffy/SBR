@@ -8,6 +8,8 @@ from accelerometer import Accelerometer as A
 
 # initial configuration
 GPIO.setmode(GPIO.BOARD)
+GPIO.setup(11,GPIO.OUT)
+
 mL = Motor(33,35,37)
 mR = Motor(36,38,40)
 mL.set_direction('FORWARD')
@@ -33,6 +35,9 @@ class MotorMgr(Resource):
             motors[motor]['dir'] = dir
         return Response(json.dumps(motors[motor]),mimetype='text/json')
 
+class LEDMgr(Resource):
+    def put(self, state):
+        
 class GyroMgr(Resource):
     def get(self):
         pass        
