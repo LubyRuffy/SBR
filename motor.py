@@ -18,6 +18,7 @@ class MotorIf(object):
     def set_speed(self, speed):
         self.speed = speed
         if speed == 0:
+            self.pwm.ChangeDutyCycle(speed)
             GPIO.output(self.revPin,GPIO.LOW)
             GPIO.output(self.fwdPin,GPIO.LOW)
             self.pwm.stop()
