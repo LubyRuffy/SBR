@@ -21,6 +21,7 @@ acc = A(0x68)
 
 motors = {'L': {'speed': 0 , 'dir': 'FORWARD' },
           'R': {'speed': 0 , 'dir': 'FORWARD' } }
+
 gyroState = {}
 
 class MotorMgr(Resource):
