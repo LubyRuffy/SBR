@@ -52,9 +52,11 @@ if __name__ == '__main__':
     try:
         app = Flask(__name__)
         api = Api(app)
+        
         api.add_resource(MotorMgr, '/motor/<string:motor>')
         api.add_resource(GyroMgr, '/gyro')
         api.add_resource(LEDMgr, '/led/<string:state>')
+        
         app.run(host='0.0.0.0', debug=True)
     except KeyboardInterrupt:
         pass
