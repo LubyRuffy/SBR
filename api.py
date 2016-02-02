@@ -31,7 +31,7 @@ class MotorMgr(Resource):
             motors[motor]['speed'] = speed
         if dir:
             motors[motor]['dir'] = dir
-        return json.dumps(motors)
+        return Response(json.dumps(motors[motor]),mimetype='text/json')
 
 class GyroMgr(Resource):
     def get(self):
