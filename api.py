@@ -27,7 +27,7 @@ class MotorMgr(Resource):
         return {todo_id: todos[todo_id]}
 
     def put(self, motor, speed):
-        motors[motor] = request.form['speed']
+        motors[motor] = speed
         return {todo_id: todos[todo_id]}
 
 api.add_resource(MotorMgr, '/<string:motor>/<int:speed>')
@@ -38,4 +38,3 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         pass
     GPIO.cleanup()
-
