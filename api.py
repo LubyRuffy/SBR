@@ -28,14 +28,14 @@ class MotorMgr(Resource):
         return Response(json.dumps(motors[motor]),mimetype='text/json')
 
     def put(self, motor):
-        if 'speed' in request.form.keys():
-            speed = int(request.form['speed'])
-            motors[motor]['speed'] = speed
-            m[motor].set_speed(speed)
         if 'dir' in request.form.keys():
             dir = request.form['dir']
             motors[motor]['dir'] = dir
             m[motor].set_direction(dir)
+        if 'speed' in request.form.keys():
+            speed = int(request.form['speed'])
+            motors[motor]['speed'] = speed
+            m[motor].set_speed(speed)
         return Response(json.dumps(motors[motor]),mimetype='text/json')
 
 class LEDMgr(Resource):
