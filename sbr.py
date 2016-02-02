@@ -8,7 +8,16 @@ class MotorMgr(object):
         self['fwdPin'] = fwdPin
         self['revPin'] = revPin
         self['speed'] = speed
-        
+    
+    def set_speed(self, speed):
+        self['speed'] = speed
+
+    def set_rspeed(self,speed):
+        pass
+    
+    def set_lspeed(self,speed):
+        pass
+    
 class SBRHandler(BaseHTTPRequestHandler, object):
     def setup(self):
         GPIO.setmode(GPIO.BOARD)
