@@ -11,7 +11,7 @@ class MotorIf(object):
             return None
     
     def __setitem__(self, key, value):
-        object.__setattr__(self, attr, value)
+        object.__setattr__(self, key, value)
     
     def __init__(self, fwdPin, revPin, pwmPin):
         self = {}
