@@ -5,7 +5,10 @@ import RPi.GPIO as GPIO
 class MotorIf(object):
     
     def __getitem__(self, key):
-        return getattr(self, key)
+        if hasattr(self,key):
+            return getattr(self, key)
+        else
+            return Null
     
     def __setitem__(self, key, value):
         setattr(self, key, value)
