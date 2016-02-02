@@ -18,9 +18,9 @@ class MotorIf(object):
             self['pwm'].stop()
         else :
             if self['pwm'] :
-                self['pwm'] =  GPIO.PWM(pwmPin,speed)
+                self['pwm'] =  GPIO.PWM(pwmPin,100)
             else:
-                self['pwm'].ChangeFrequency(speed)
+                self['pwm'].ChangeDutyCycle(speed)
                         
         
 
