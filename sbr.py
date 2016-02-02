@@ -7,7 +7,7 @@ class MotorIf(object):
     def __getitem__(self, key):
         if hasattr(self,key):
             return getattr(self, key)
-        else:
+        else
             return Null
     
     def __setitem__(self, key, value):
@@ -15,36 +15,36 @@ class MotorIf(object):
     
     def __init__(self, fwdPin, revPin, pwmPin):
         self = {}
-        self.fwdPin = fwdPin
-        self.revPin = revPin
-        self.pwmPin = pwmPin
-        self.running = False
+        self['fwdPin'] = fwdPin
+        self['revPin'] = revPin
+        self['pwmPin'] = pwmPin
+        self['running'] = False
         GPIO.setup(fwdPin,GPIO.OUT)
         GPIO.setup(revPin,GPIO.OUT)
         GPIO.setup(pwmPin,GPIO.OUT)
-        self.pwm = GPIO.PWM(pwmPin,100)
+        self['pwm'] = GPIO.PWM(pwmPin,100)
         
     def set_speed(self, speed):
-        self.speed = speed
+        self['speed'] = speed
         if speed == 0:
             GPIO.output(self['revPin'],GPIO.LOW)
             GPIO.output(self['fwdPin'],GPIO.LOW)
-            self.pwm.stop()
-            self.running = False
+            self['pwm'].stop()
+            self['running'] = False
         else :
-            if not self.running:
-                self.pwm.start(speed)
-                self.running = True
+            if not self['running']:
+                self['pwm'].start(speed)
+                self['running'] = True
             else:
-                self.pwm.ChangeDutyCycle(speed)
+                self['pwm'].ChangeDutyCycle(speed)
 
     def set_direction(self, dir):
         if dir == 'FORWARD':
-            GPIO.output(self.revPin,GPIO.LOW)
-            GPIO.output(self.fwdPin,GPIO.HIGH)
+            GPIO.output(self['revPin'],GPIO.LOW)
+            GPIO.output(self['fwdPin'],GPIO.HIGH)
         elif dir == 'BACKWARD':
-            GPIO.output(self.revPin,GPIO.HIGH)
-            GPIO.output(self.fwdPin,GPIO.LOW)
+            GPIO.output(self['revPin'],GPIO.HIGH)
+            GPIO.output(self['fwdPin'],GPIO.LOW)
         
     def stop(self):
         self.set_speed(0)
@@ -52,12 +52,12 @@ class MotorIf(object):
 class SBRHandler(BaseHTTPRequestHandler, object):
     def setup(self):
         GPIO.setmode(GPIO.BOARD)
-        self.mL = MotorIf(33,35,37)
-        self.mR = MotorIf(36,38,40)
-        self.mR.set_speed(50)
-        self.mL.set_speed(50)
-        self.mL.set_direction('FORWARD')
-        self.mR.set_direction('FORWARD')
+        self['mL'] = MotorIf(33,35,37)
+        self['mR'] = MotorIf(36,38,40)
+        self['mR'].set_speed(50)
+        self['mL'].set_speed(50)
+        self['mL'].set_direction('FORWARD')
+        self['mR'].set_direction('FORWARD')
 
     def __getitem__(self, key):
         return getattr(self, key)
