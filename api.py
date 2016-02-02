@@ -30,7 +30,7 @@ class MotorMgr(Resource):
     def put(self, motor):
         if 'speed' in request.form.keys():
             speed = request.form['speed']    
-            motors[motor]['speed'] = int(speed)
+            motors[motor]['speed'] = float(speed)
             m[motor].set_speed(speed)
         if 'dir' in request.form.keys():
             dir = request.form['dir']
