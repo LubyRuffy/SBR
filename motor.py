@@ -21,6 +21,7 @@ class MotorIf(object):
             GPIO.output(self.fwdPin,GPIO.LOW)
             self.pwm.stop()
             self.running = False
+            print 'Stopping motors'
         else :
             if not self.running:
                 self.pwm.start(speed)
