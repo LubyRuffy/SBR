@@ -24,11 +24,11 @@ gyroState = {}
 
 class MotorMgr(Resource):
     def get(self, motor, speed):
-        return {todo_id: todos[todo_id]}
+        return json.dumps(motors)
 
     def put(self, motor, speed):
         motors[motor] = speed
-        return {todo_id: todos[todo_id]}
+        return json.dumps(motors)
 
 api.add_resource(MotorMgr, '/<string:motor>/<int:speed>')
 
