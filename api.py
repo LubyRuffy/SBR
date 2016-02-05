@@ -23,6 +23,11 @@ motors = {'L': {'speed': 0 , 'dir': 'FORWARD' },
 
 m = {'L':mL,'R':mR}
 
+def pid_thread():
+    acc.gyro()
+    acc.accelerometer()
+    
+
 class MotorMgr(Resource):
     def get(self, motor):
         return Response(json.dumps(motors[motor]),mimetype='text/json')
