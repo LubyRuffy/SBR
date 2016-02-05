@@ -6,6 +6,9 @@ import RPi.GPIO as GPIO
 from motor import MotorIf as Motor
 from accelerometer import Accelerometer as A
 
+import thread
+import time
+
 # initial configuration
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11,GPIO.OUT)
@@ -23,9 +26,14 @@ motors = {'L': {'speed': 0 , 'dir': 'FORWARD' },
 
 m = {'L':mL,'R':mR}
 
+exitFlag = 0
+
 def pid_thread():
-    acc.gyro()
-    acc.accelerometer()
+    
+    while not exitFlag:
+        acc.gyro()
+        acc.accelerometer()
+        time.sleep(25)
     
 
 class MotorMgr(Resource):
