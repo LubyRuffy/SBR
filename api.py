@@ -29,9 +29,11 @@ m = {'L':mL,'R':mR}
 exitFlag = 0
 
 def pid_thread():
+    
     while not exitFlag:
         acc.gyro()
         acc.accelerometer()
+        time.sleep(2)
 
 thread.start_new_thread(pid_thread,())    
 
