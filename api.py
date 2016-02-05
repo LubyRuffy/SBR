@@ -34,7 +34,8 @@ def pid_thread():
         acc.gyro()
         acc.accelerometer()
         time.sleep(25)
-    
+
+thread.start_new_thread(pid_thread,())    
 
 class MotorMgr(Resource):
     def get(self, motor):
@@ -73,5 +74,5 @@ if __name__ == '__main__':
         GPIO.cleanup()
     except KeyboardInterrupt:
         exitFlag = 1
-        pass
+    
     GPIO.cleanup()
