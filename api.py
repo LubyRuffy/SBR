@@ -60,10 +60,6 @@ class LEDMgr(Resource):
         return Response(json.dumps({"status": "ok"}),mimetype='text/json')
         
         
-class GyroMgr(Resource):
-    def get(self):
-        pass        
-
 if __name__ == '__main__':
     try:
         app = Flask(__name__)
@@ -76,5 +72,6 @@ if __name__ == '__main__':
         app.run(host='0.0.0.0', debug=True)
         GPIO.cleanup()
     except KeyboardInterrupt:
+        exitFlag = 1
         pass
     GPIO.cleanup()
