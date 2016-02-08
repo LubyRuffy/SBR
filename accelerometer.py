@@ -65,9 +65,8 @@ class Accelerometer(object):
 		accel_yout_scaled = accel_yout / 16384.0
 		accel_zout_scaled = accel_zout / 16384.0
         
-        rotation = (self.get_x_rotation(accel_xout_scaled, accel_yout_scaled, accel_zout_scaled), self.get_y_rotation(accel_xout_scaled, accel_yout_scaled, accel_zout_scaled) )
-        return rotation
-        
+        return (self.get_x_rotation(accel_xout_scaled, accel_yout_scaled, accel_zout_scaled), self.get_y_rotation(accel_xout_scaled, accel_yout_scaled, accel_zout_scaled) )
+
         '''		        
 		print
 		print "accelerometer data"
