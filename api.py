@@ -21,6 +21,7 @@ mR.set_speed(50)
 mL.set_speed(50)
 acc = A(0x68)
 
+# max speed = 100
 motors = {'L': {'speed': 0 , 'dir': 'FORWARD' },
           'R': {'speed': 0 , 'dir': 'FORWARD' } }
 
@@ -33,6 +34,7 @@ exitFlag = 0
 
 pid = { 'pid_speed' : PID(),
         'pid_angle' : PID() }
+        
 def pid_thread():
     
     while not exitFlag:
