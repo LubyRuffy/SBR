@@ -32,7 +32,8 @@ def pid_thread():
     
     while not exitFlag:
         acc.gyro()
-        acc.accelerometer()
+        rotation = acc.accelerometer()
+        print "%f,%f\n" % rotation
         time.sleep(2)
 
 thread.start_new_thread(pid_thread,())    
