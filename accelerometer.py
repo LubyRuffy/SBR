@@ -5,7 +5,7 @@ import math
 
 class Accelerometer(object):
 	
-	def __init__(self,i2caddr=0x68):
+    def __init__(self,i2caddr=0x68):
 		self.power_mgmt_1 = 0x6b
 		self.power_mgmt_2 = 0x6c
 		self.bus = smbus.SMBus(1) # or bus = smbus.SMBus(1) for Revision 2 boards
@@ -14,16 +14,16 @@ class Accelerometer(object):
 		# Now wake the 6050 up as it starts in sleep mode
 		self.bus.write_byte_data(self.address, self.power_mgmt_1, 0)
     
-	def read_byte(self,adr):
+    def read_byte(self,adr):
 		return self.bus.read_byte_data(self.address, adr)
     
-	def read_word(self,adr):
+    def read_word(self,adr):
 		high = self.bus.read_byte_data(self.address, adr)
 		low = self.bus.read_byte_data(self.address, adr+1)
 		val = (high << 8) + low
 		return val
     
-	def read_word_2c(self,adr):
+    def read_word_2c(self,adr):
 		val = self.read_word(adr)
 		if (val >= 0x8000):
 			return -((65535 - val) + 1)
