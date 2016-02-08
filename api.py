@@ -8,7 +8,7 @@ from accelerometer import Accelerometer as A
 
 import thread
 import time
-import PID
+from PID import PID
 
 # initial configuration
 GPIO.setmode(GPIO.BOARD)
