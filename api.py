@@ -38,7 +38,6 @@ pid = { 'pid_speed' : PID(),
 def pid_thread():
     
     while not exitFlag:
-        #acc.gyro()
         rotation = acc.accelerometer()
         print "%f,%f\n" % rotation
         time.sleep(2)
