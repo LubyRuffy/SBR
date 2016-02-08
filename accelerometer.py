@@ -56,7 +56,7 @@ class Accelerometer(object):
 		print "gyro_yout: ", gyro_yout, " scaled: ", (gyro_yout / 131)
 		print "gyro_zout: ", gyro_zout, " scaled: ", (gyro_zout / 131)
     
-def accelerometer(self):
+    def accelerometer(self):
         accel_xout = self.read_word_2c(0x3b)
         accel_yout = self.read_word_2c(0x3d)
         accel_zout = self.read_word_2c(0x3f)
