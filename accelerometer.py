@@ -7,7 +7,7 @@ class Accelerometer(object):
 	
 	def __init__(self,i2caddr=0x68):
 		self.power_mgmt_1 = 0x6b
- 		self.power_mgmt_2 = 0x6c
+		self.power_mgmt_2 = 0x6c
 		self.bus = smbus.SMBus(1) # or bus = smbus.SMBus(1) for Revision 2 boards
 		self.address = i2caddr       # This is the address value read via the i2cdetect command
         
@@ -60,21 +60,8 @@ class Accelerometer(object):
 		accel_xout = self.read_word_2c(0x3b)
 		accel_yout = self.read_word_2c(0x3d)
 		accel_zout = self.read_word_2c(0x3f)
-        
 		accel_xout_scaled = accel_xout / 16384.0
 		accel_yout_scaled = accel_yout / 16384.0
 		accel_zout_scaled = accel_zout / 16384.0
-        
         return (self.get_x_rotation(accel_xout_scaled, accel_yout_scaled, accel_zout_scaled), self.get_y_rotation(accel_xout_scaled, accel_yout_scaled, accel_zout_scaled) )
 
-        '''		        
-		print
-		print "accelerometer data"
-		print "------------------"
-		print "accel_xout: ", accel_xout, " scaled: ", accel_xout_scaled
-		print "accel_yout: ", accel_yout, " scaled: ", accel_yout_scaled
-		print "accel_zout: ", accel_zout, " scaled: ", accel_zout_scaled
-		print "x rotation: " , self.get_x_rotation(accel_xout_scaled, accel_yout_scaled, accel_zout_scaled)
-		print "y rotation: " , self.get_y_rotation(accel_xout_scaled, accel_yout_scaled, accel_zout_scaled)
-		'''
-		
