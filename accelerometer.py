@@ -31,7 +31,7 @@ class Accelerometer(object):
 			return val
     
     @staticmethod
-	def dist(a,b):
+    def dist(a,b):
         return math.sqrt((a*a)+(b*b))
     
     @staticmethod
