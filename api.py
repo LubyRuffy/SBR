@@ -14,6 +14,10 @@ from PID import PID
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11,GPIO.OUT)
 
+# max speed = 100
+motors = {'L': {'speed': 0 , 'dir': 'FORWARD' },
+          'R': {'speed': 0 , 'dir': 'FORWARD' } }
+
 mL = Motor('Left', 33,35,37)
 mR = Motor('Right', 36,38,40)
 mL.set_direction('FORWARD')
@@ -21,10 +25,6 @@ mR.set_direction('FORWARD')
 mR.set_speed(50)
 mL.set_speed(50)
 acc = A(0x68)
-
-# max speed = 100
-motors = {'L': {'speed': 0 , 'dir': 'FORWARD' },
-          'R': {'speed': 0 , 'dir': 'FORWARD' } }
 
 m = {'L':mL,'R':mR}
 
@@ -41,6 +41,9 @@ def pid_thread():
     while not exitFlag:
         rotation = acc.accelerometer()
         print "%f,%f\n" % rotation
+        setPoint_Speed = (motors['L']['speed'] + motors['R']['speed'])/2.0
+        pid['pid_speed'].SetPoint = setPoint_Speed
+        
         time.sleep(2)
 
 thread.start_new_thread(pid_thread,())    
