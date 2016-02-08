@@ -28,11 +28,15 @@ m = {'L':mL,'R':mR}
 
 exitFlag = 0
 
+# first PID loop will try to set speed
+# second PID loop will try to set angle
+
+pid = { 'pid_speed' : PID(),
+        'pid_angle' : PID() }
 def pid_thread():
     
     while not exitFlag:
         #acc.gyro()
-        
         rotation = acc.accelerometer()
         print "%f,%f\n" % rotation
         time.sleep(2)
