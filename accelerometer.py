@@ -57,9 +57,6 @@ class Accelerometer(object):
 		print "gyro_zout: ", gyro_zout, " scaled: ", (gyro_zout / 131)
 
 	def accelerometer(self):
-		print
-		print "accelerometer data"
-		print "------------------"
 		accel_xout = self.read_word_2c(0x3b)
 		accel_yout = self.read_word_2c(0x3d)
 		accel_zout = self.read_word_2c(0x3f)
@@ -67,10 +64,20 @@ class Accelerometer(object):
 		accel_xout_scaled = accel_xout / 16384.0
 		accel_yout_scaled = accel_yout / 16384.0
 		accel_zout_scaled = accel_zout / 16384.0
-		        
+
+        '''		        
+		print
+		print "accelerometer data"
+		print "------------------"
 		print "accel_xout: ", accel_xout, " scaled: ", accel_xout_scaled
 		print "accel_yout: ", accel_yout, " scaled: ", accel_yout_scaled
 		print "accel_zout: ", accel_zout, " scaled: ", accel_zout_scaled
-		        
 		print "x rotation: " , self.get_x_rotation(accel_xout_scaled, accel_yout_scaled, accel_zout_scaled)
 		print "y rotation: " , self.get_y_rotation(accel_xout_scaled, accel_yout_scaled, accel_zout_scaled)
+		'''
+		
+		rotation = (self.get_x_rotation(accel_xout_scaled, accel_yout_scaled, accel_zout_scaled),
+		    self.get_y_rotation(accel_xout_scaled, accel_yout_scaled, accel_zout_scaled))
+		    
+        return rotation
+        
