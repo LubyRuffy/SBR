@@ -30,19 +30,19 @@ class Accelerometer(object):
 		else:
 			return val
     
-	@staticmethod
+    @staticmethod
 	def dist(a,b):
-		return math.sqrt((a*a)+(b*b))
+        return math.sqrt((a*a)+(b*b))
     
-	@staticmethod
-	def get_y_rotation(x,y,z):
-		radians = math.atan2(x, Accelerometer.dist(y,z))
-		return -math.degrees(radians)
+    @staticmethod
+    def get_y_rotation(x,y,z):
+        radians = math.atan2(x, Accelerometer.dist(y,z))
+        return -math.degrees(radians)
     
-	@staticmethod
-	def get_x_rotation(x,y,z):
-		radians = math.atan2(y, Accelerometer.dist(x,z))
-		return math.degrees(radians)
+    @staticmethod
+    def get_x_rotation(x,y,z):
+        radians = math.atan2(y, Accelerometer.dist(x,z))
+        return math.degrees(radians)
 
 
     def gyro(self):
