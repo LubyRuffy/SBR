@@ -76,7 +76,7 @@ class Accelerometer(object):
 		print "y rotation: " , self.get_y_rotation(accel_xout_scaled, accel_yout_scaled, accel_zout_scaled)
 		'''
 		
-		rotation = (self.get_x_rotation(accel_xout_scaled, accel_yout_scaled, accel_zout_scaled),
+        rotation = (self.get_x_rotation(accel_xout_scaled, accel_yout_scaled, accel_zout_scaled),
 		    self.get_y_rotation(accel_xout_scaled, accel_yout_scaled, accel_zout_scaled))
 		    
         return rotation
