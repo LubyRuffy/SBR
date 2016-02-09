@@ -48,7 +48,7 @@ def pid_thread():
         pid['pid_angle'].SetPoint = pid['pid_speed'].output    
         # y angle
         real_angle = rotation[1]
-        print 'Angle set point ', pid['pid_angle'].SetPoint, 'Real angle: ', real_angle 
+        print 'Angle set point: ', pid['pid_angle'].SetPoint, 'Real angle: ', real_angle 
         pid['pid_angle'].update(real_angle)
         real_speed = pid['pid_angle'].output
         
