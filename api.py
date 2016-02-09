@@ -33,8 +33,8 @@ exitFlag = 0
 # first PID loop will try to set speed
 # second PID loop will try to set angle
 
-pid = { 'pid_speed' : PID(),
-        'pid_angle' : PID() }
+pid = { 'pid_speed' : PID(1,1,1),
+        'pid_angle' : PID(1,1,1) }
 
         
 def pid_thread():
