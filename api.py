@@ -64,7 +64,6 @@ def pid_thread():
         m['R'].set_direction(dir)
         m['L'].set_speed(lSpeed)
         m['R'].set_speed(rSpeed)
-        time.sleep(2)
 
 thread.start_new_thread(pid_thread,())    
 
