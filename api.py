@@ -48,13 +48,17 @@ def pid_thread():
         pid['pid_angle'].SetPoint = pid['pid_speed'].output    
         # y angle
         real_angle = rotation[1]
+        print 'Angle set point ', pid['pid_angle'].SetPoint, 'Real angle: ', real_angle 
         pid['pid_angle'].update(real_angle)
         real_speed = pid['pid_angle'].output
+        
+        # process
         if real_speed > 0:
             dir = 'FORWARD'
         else:
             dir = 'BACKWARD'
-        print 'real_speed', real_speed
+        print 'Speed set point', setPoint_Speed, 'Real_speed', real_speed
+        
         time.sleep(2)
 
 thread.start_new_thread(pid_thread,())    
