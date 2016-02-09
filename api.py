@@ -35,15 +35,26 @@ exitFlag = 0
 
 pid = { 'pid_speed' : PID(),
         'pid_angle' : PID() }
+
         
 def pid_thread():
-    
+    real_speed = 0
     while not exitFlag:
         rotation = acc.accelerometer()
         print "%f,%f\n" % rotation
         setPoint_Speed = (motors['L']['speed'] + motors['R']['speed'])/2.0
         pid['pid_speed'].SetPoint = setPoint_Speed
-        
+        pid['pid_speed'].update(real_speed)
+        pid['pid_angle'].SetPoint = pid['pid_speed'].output    
+        # y angle
+        real_angle = rotation[1]
+        pid['pid_angle'].update(real_angle)
+        real_speed = pid['pid_angle'].output
+        if real_speed > 0:
+            dir = 'FORWARD'
+        else:
+            dir = 'BACKWARD'
+        print 'real_speed', real_speed
         time.sleep(2)
 
 thread.start_new_thread(pid_thread,())    
