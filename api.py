@@ -61,8 +61,8 @@ def pid_thread():
         real_speed = abs(real_speed)
         if real_speed > 100:
             real_speed = 100
-        lSpeed = abs(real_speed)
-        rSpeed = abs(real_speed)
+        lSpeed = real_speed
+        rSpeed = real_speed
         m['L'].set_direction(dir)
         m['R'].set_direction(dir)
         m['L'].set_speed(lSpeed)
