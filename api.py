@@ -58,6 +58,8 @@ def pid_thread():
         else:
             dir = 'BACKWARD'
         print 'Speed set point', setPoint_Speed, 'Real_speed', real_speed
+        if real_speed > 100:
+            real_speed = 100
         lSpeed = abs(real_speed)
         rSpeed = abs(real_speed)
         m['L'].set_direction(dir)
